@@ -2,7 +2,7 @@
 
 A modern, high-performance, fully responsive personal portfolio website built for **Shan**, Digital Designer & Creative Web Developer.
 
-![Shan Portfolio Badge](assets/images/logo/logo-secendary.png)
+![vishnu's portfolio Badge](assets/images/logo/logo-secendary.png)
 
 ---
 
@@ -41,7 +41,7 @@ This portfolio serves as a complete digital showcase of **Shan's** work, service
 1. **Header & Brand Navigation**:
    - Custom badge logo (**SHAN**) with vibrant gradient icons.
    - Quick navigation links (`Home`, `About Me`, `Portfolio`, `Services`, `Contact`).
-   - "Download CV" call-to-action button and offcanvas mobile menu toggle.
+   - "LET'S CONNECT" call-to-action button and offcanvas mobile menu toggle.
 
 2. **Hero / Banner Section**:
    - Dynamic greeting (`Hello! I'm Shan, a digital designer and creative developer.`).

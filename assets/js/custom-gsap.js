@@ -622,16 +622,29 @@
   });
 
   ///////////////////////
-  // 11. Portfolio Three Effect
-  gsap.to(".portfolio-three-shape", {
-    scrollTrigger: {
-      trigger: ".portfolio-three-area",
-      start: "top center-=200",
-      pin: ".portfolio-three-shape",
-      end: "bottom bottom-=200",
-      markers: false,
-      pinSpacing: false,
-      scrub: 1,
-    },
-  });
+  // 11. Portfolio Three Horizontal Scroll Effect
+  let portfolioWrapper = document.querySelector(".portfolio-three-active");
+  let swiperWrapper = document.querySelector(".portfolio-three-active .swiper-wrapper");
+  let portfolioItems = gsap.utils.toArray(".portfolio-three-active .swiper-slide");
+
+  if (portfolioWrapper && swiperWrapper && portfolioItems.length > 0) {
+    let getScrollAmount = () => {
+      let wrapperWidth = swiperWrapper.scrollWidth;
+      let windowWidth = window.innerWidth;
+      return wrapperWidth - portfolioWrapper.offsetWidth;
+    };
+
+    gsap.to(swiperWrapper, {
+      x: () => -getScrollAmount(),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".portfolio-three-area",
+        start: "top 10%",
+        end: () => "+=" + (swiperWrapper.scrollWidth - portfolioWrapper.offsetWidth),
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true,
+      }
+    });
+  }
 })(jQuery);

@@ -140,4 +140,41 @@
       prevEl: ".slider-prev",
     },
   });
+
+  ////////////////////////////////////////////////////
+  // 07. Portfolio Three Js
+  // Commented out to use GSAP ScrollTrigger horizontal scroll instead
+  /*
+  var slider = new Swiper(".portfolio-three-active", {
+    slidesPerView: 2,
+    spaceBetween: 30,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    speed: 1500,
+    loop: true,
+    mousewheel: {
+      forceToAxis: true,
+    },
+    breakpoints: {
+      1200: {
+        slidesPerView: 2,
+      },
+      992: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 1,
+      },
+      576: {
+        slidesPerView: 1,
+      },
+      0: {
+        slidesPerView: 1,
+      },
+    }
+  });
+  */
+
 })(jQuery);

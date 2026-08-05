@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="assets/css/aos.css" />
   <!-- Main css -->
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
   <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
   <style>
@@ -31,8 +32,173 @@
     .about-three-area,
     .service-three-area,
     .portfolio-three-area,
-    .footer-three-area {
+    .footer-three-area,
+    .header,
+    .fixed-header {
       background: transparent !important;
+    }
+
+    /* Horizontal Scroll styling for portfolio */
+    .portfolio-three-active .swiper-wrapper {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      width: max-content !important;
+      gap: 30px;
+    }
+    .portfolio-three-active .swiper-slide {
+      width: 50vw !important;
+      max-width: 650px;
+      min-width: 320px;
+      flex-shrink: 0 !important;
+      height: auto !important;
+    }
+    @media (max-width: 767px) {
+      .portfolio-three-active .swiper-slide {
+        width: 80vw !important;
+      }
+    }
+
+    /* Technical Skills Section styling */
+    .skill-filter-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #a1a1aa;
+      padding: 10px 24px;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .skill-filter-btn:hover, .skill-filter-btn.active {
+      color: #fff;
+      background: rgba(138, 43, 226, 0.8) !important;
+      border-color: rgba(138, 43, 226, 0.5) !important;
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+    }
+    .skill-item {
+      transition: all 0.3s ease;
+    }
+    .skill-card {
+      background: #0d0d0d;
+      border: 1px solid rgba(138, 43, 226, 0.15);
+      border-radius: 16px;
+      padding: 20px 25px;
+      text-align: left;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 15px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      height: 100%;
+      min-height: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-icon-wrap {
+      flex-shrink: 0;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    .skill-card:hover .skill-icon-wrap {
+      border-color: rgba(138, 43, 226, 0.4);
+      background: rgba(138, 43, 226, 0.05);
+    }
+    .skill-info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .skill-percent-text {
+      color: #8a2be2;
+      font-size: 14px;
+      font-weight: 700;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .skill-card:hover .skill-percent-text {
+      opacity: 1;
+    }
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(138, 43, 226, 0.6);
+      box-shadow: 0 10px 25px rgba(138, 43, 226, 0.25);
+    }
+    .skill-icon {
+      font-size: 2.4rem;
+      transition: all 0.3s ease;
+    }
+    .skill-card:hover .skill-icon {
+      transform: scale(1.1);
+    }
+    .skill-name {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      transition: all 0.3s ease;
+    }
+    .skill-desc {
+      color: #a1a1aa;
+      font-size: 12px;
+      margin: 4px 0 0 0;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .skill-progress-bar {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      margin-top: 8px;
+      overflow: hidden;
+      opacity: 0;
+      max-height: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .skill-progress-line {
+      height: 100%;
+      background: #8a2be2;
+      border-radius: 2px;
+      width: 0;
+      transition: width 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+    }
+    .skill-card:hover .skill-progress-line {
+      width: var(--width);
+    }
+    .skill-card:hover .skill-desc {
+      opacity: 1;
+      max-height: 40px;
+    }
+    .skill-card:hover .skill-progress-bar {
+      opacity: 1;
+      max-height: 10px;
+    }
+    /* Custom 5-column layout */
+    @media (min-width: 1200px) {
+      .col-xl-2-4 {
+        flex: 0 0 20%;
+        max-width: 20%;
+      }
     }
 
     /* Mobile: DEVELOPER single line + image above text */
@@ -273,7 +439,7 @@
 
   <!-- ==================== Header Start Here ==================== -->
   <header class="header header-two header-three tw-transition-all tw-z-99 position-relative"
-    style="padding: 10px 0 !important; min-height: unset !important; height: auto !important;">
+    style="background: transparent !important; padding: 10px 0 !important; min-height: unset !important; height: auto !important;">
     <div class="container tw-container-1800-px">
       <nav class="d-flex align-items-center justify-content-between position-relative">
         <!-- Logo Start -->
@@ -289,28 +455,19 @@
         </div>
         <!-- Logo End  -->
 
-        <!-- Menu Start  -->
-        <div class="header-three-social d-none d-lg-block">
-          <ul class="d-flex tw-gap-205">
-            <li>
-              <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
-                href="#"><i class="ph-bold ph-facebook-logo"></i></a>
-            </li>
-            <li>
-              <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
-                href="#"><i class="ph-bold ph-x-logo"></i></a>
-            </li>
-            <li>
-              <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
-                href="#"><i class="ph-bold ph-instagram-logo"></i></a>
-            </li>
-            <li>
-              <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
-                href="#"><i class="ph-bold ph-dribbble-logo"></i></a>
-            </li>
+        <!-- Main Navigation Start -->
+        <div class="header-main-nav d-none d-lg-block mx-auto">
+          <ul class="d-flex align-items-center m-0 p-0" style="list-style: none; gap: 4px; background: rgba(20, 20, 25, 0.85); backdrop-filter: blur(12px); padding: 8px 12px !important; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
+            <li><a href="#home" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Home</a></li>
+            <li><a href="#about" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">About</a></li>
+            <li><a href="#services" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'; this.style.borderColor='rgba(138,43,226,0.5)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'; this.style.borderColor='transparent'">Services</a></li>
+            <li><a href="#projects" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Projects</a></li>
+            <li><a href="#skills" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Skills</a></li>
+            <li><a href="#certs" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Certs</a></li>
+            <li><a href="#contact" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Contact</a></li>
           </ul>
         </div>
-        <!-- Menu End  -->
+        <!-- Main Navigation End -->
 
         <!-- Menu Start  -->
         <div class="header-menu d-none">
@@ -691,8 +848,8 @@
             </div>
             <div class="row">
               <div class="col-xl-6">
-                <div class="about-three-thumb w-100 tw-clip-anim tw-rounded-lg" data-aos="fade-up"
-                  data-aos-duration="1000" data-aos-delay="200">
+                <div class="about-three-thumb tw-clip-anim tw-rounded-lg" data-aos="fade-up"
+                  data-aos-duration="1000" data-aos-delay="200" style="max-width: 70%; margin: 0 auto;">
                   <img class="tw-anim-img w-100 tw-rounded-lg" data-animate="true"
                     src="assets/images/thumbs/about-three-thumb.png" alt="thumb" />
                 </div>
@@ -769,7 +926,7 @@
         </div>
       </section>
       <!-- ======================== Marquee section start =========================== -->
-      <div class="marquee tw-pt-17 bg-black">
+      <div id="services" class="marquee tw-pt-17 bg-black">
         <div class="marquee_left d-flex align-items-center justify-content-between tw-gap-16 overflow-hidden">
           <div>
             <h2 class="marquee-two-title marquee-three-title text-uppercase text-white">
@@ -967,16 +1124,27 @@
           </div>
         </div>
       </section>
-      <section class="portfolio-three-area py-120 position-relative z-1">
-        <div class="portfolio-three-shape position-absolute top-0 z-n1">
-          <h3 class="portfolio-three-shape-title" style="color: #ff0000 !important;">works</h3>
+      <section class="portfolio-three-area py-120 position-relative z-1" id="projects">
+        <div class="container tw-container-1800-px">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="tw-mb-12">
+                <h2 class="tw-text-15 text-white" style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; font-family: 'Syne', sans-serif;">
+                  Projects Showcase - <span style="color: #8a2be2; font-style: italic; font-family: serif;">WHAT I'VE BUILT!</span>
+                </h2>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="container tw-container-1800-px">
           <div class="row">
             <div class="col-xl-12">
               <div
-                class="portfolio-three-wrapper d-flex justify-content-between flex-wrap align-items-start position-relative z-1">
-                <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
+                class="portfolio-three-wrapper position-relative z-1">
+                <div class="portfolio-three-active overflow-hidden">
+                  <div class="swiper-wrapper align-items-center">
+                    <div class="swiper-slide">
+                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper" style="margin-top: 0 !important; max-width: 100% !important;">
                   <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
                     <div class="tw-mb-6">
                       <div>
@@ -1010,7 +1178,9 @@
                         alt="thumb" /></a>
                   </div>
                 </div>
-                <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper" style="margin-top: 0 !important; max-width: 100% !important;">
                   <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
                     <div class="tw-mb-6">
                       <div>
@@ -1042,7 +1212,9 @@
                         alt="thumb" /></a>
                   </div>
                 </div>
-                <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper" style="margin-top: 0 !important; max-width: 100% !important;">
                   <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
                     <div class="tw-mb-6">
                       <div>
@@ -1074,7 +1246,9 @@
                         alt="thumb" /></a>
                   </div>
                 </div>
-                <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper" style="margin-top: 0 !important; max-width: 100% !important;">
                   <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
                     <div class="tw-mb-6">
                       <div>
@@ -1106,24 +1280,383 @@
                         alt="thumb" /></a>
                   </div>
                 </div>
-                <div
-                  class="about-three-counter portfolio-three-counter d-inline-block position-absolute bottom-0 start-0">
-                  <div class="tw-hover-btn-wrapper d-inline-block">
-                    <a class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden"
-                      href="about.html">
-                      <span class="d-flex flex-column justify-content-center">
-                        <span class="text-heading fw-bold tw-transition-3 tw-text-2xl fw-semibold">Discover <br />
-                          Our Projects <i class="ph ph-arrow-up-right"></i></span>
-                      </span>
-                      <i class="tw-btn-circle-dot bg-main-two-600"></i>
-                    </a>
-                  </div>
-                </div>
+              </div>
+            </div>
+          </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- ======================== Technical Skills Section start =========================== -->
+      <section class="skills-section py-120 position-relative z-1" id="skills">
+        <div class="container tw-container-1800-px">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="text-center tw-mb-12">
+                <h2 class="tw-text-15 text-white" style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; font-family: 'Syne', sans-serif; margin-bottom: 30px;">
+                  Technical Skills - <span style="color: #8a2be2; font-style: italic; font-family: serif;">CORE EXPERTISE!</span>
+                </h2>
+                
+                <!-- Filter Buttons -->
+                <div class="d-flex flex-wrap justify-content-center gap-3" style="margin-bottom: 50px;">
+                  <button class="skill-filter-btn active" data-filter="all">All</button>
+                  <button class="skill-filter-btn" data-filter="languages">Languages</button>
+                  <button class="skill-filter-btn" data-filter="frontend">Frontend</button>
+                  <button class="skill-filter-btn" data-filter="backend">Backend</button>
+                  <button class="skill-filter-btn" data-filter="databases">Databases</button>
+                  <button class="skill-filter-btn" data-filter="tools">Tools</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Skills Grid -->
+          <div class="row g-4 justify-content-center" id="skills-grid">
+            <!-- C++ -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="languages">
+              <div class="skill-card" style="--width: 90%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-cplusplus-plain colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">C++</h3>
+                    <span class="skill-percent-text">90%</span>
+                  </div>
+                  <p class="skill-desc">High-performance systems programming</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Python -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="languages">
+              <div class="skill-card" style="--width: 85%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-python-plain colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">Python</h3>
+                    <span class="skill-percent-text">85%</span>
+                  </div>
+                  <p class="skill-desc">Versatile language for backend &amp; automation</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Java -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="languages">
+              <div class="skill-card" style="--width: 80%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-java-plain colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">Java</h3>
+                    <span class="skill-percent-text">80%</span>
+                  </div>
+                  <p class="skill-desc">Object-oriented programming</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- JavaScript -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="languages frontend backend">
+              <div class="skill-card" style="--width: 95%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-javascript-plain colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">JavaScript</h3>
+                    <span class="skill-percent-text">95%</span>
+                  </div>
+                  <p class="skill-desc">Dynamic &amp; powerful web interactions</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- HTML -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="frontend">
+              <div class="skill-card" style="--width: 98%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-html5-plain colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">HTML</h3>
+                    <span class="skill-percent-text">98%</span>
+                  </div>
+                  <p class="skill-desc">Structuring the web content</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- CSS -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="frontend">
+              <div class="skill-card" style="--width: 95%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-css3-plain colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">CSS</h3>
+                    <span class="skill-percent-text">95%</span>
+                  </div>
+                  <p class="skill-desc">Styling beautiful user interfaces</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- React.js -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="frontend">
+              <div class="skill-card" style="--width: 90%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-react-original colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">React.js</h3>
+                    <span class="skill-percent-text">90%</span>
+                  </div>
+                  <p class="skill-desc">Building interactive UI components</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Next.js -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="frontend">
+              <div class="skill-card" style="--width: 85%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-nextjs-plain skill-icon text-white"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">Next.js</h3>
+                    <span class="skill-percent-text">85%</span>
+                  </div>
+                  <p class="skill-desc">React framework for production</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Node.js -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="backend">
+              <div class="skill-card" style="--width: 88%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-nodejs-plain colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">Node.js</h3>
+                    <span class="skill-percent-text">88%</span>
+                  </div>
+                  <p class="skill-desc">JavaScript runtime for backend</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Express.js -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="backend">
+              <div class="skill-card" style="--width: 85%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-express-original skill-icon text-white"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">Express.js</h3>
+                    <span class="skill-percent-text">85%</span>
+                  </div>
+                  <p class="skill-desc">Fast &amp; minimal web framework</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Django -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="backend">
+              <div class="skill-card" style="--width: 80%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-django-plain colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">Django</h3>
+                    <span class="skill-percent-text">80%</span>
+                  </div>
+                  <p class="skill-desc">The Python web framework</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Tailwind CSS -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="frontend">
+              <div class="skill-card" style="--width: 92%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-tailwindcss-original colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">Tailwind CSS</h3>
+                    <span class="skill-percent-text">92%</span>
+                  </div>
+                  <p class="skill-desc">Utility-first CSS framework</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Three.js -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="frontend">
+              <div class="skill-card" style="--width: 70%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-threejs-original skill-icon text-white"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">Three.js</h3>
+                    <span class="skill-percent-text">70%</span>
+                  </div>
+                  <p class="skill-desc">3D graphics for the modern web</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- MongoDB -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="databases">
+              <div class="skill-card" style="--width: 85%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-mongodb-plain colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">MongoDB</h3>
+                    <span class="skill-percent-text">85%</span>
+                  </div>
+                  <p class="skill-desc">NoSQL database for modern apps</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- MySQL -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="databases">
+              <div class="skill-card" style="--width: 85%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-mysql-plain colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">MySQL</h3>
+                    <span class="skill-percent-text">85%</span>
+                  </div>
+                  <p class="skill-desc">Relational database management</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Git -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="tools">
+              <div class="skill-card" style="--width: 90%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-git-plain colored skill-icon"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">Git</h3>
+                    <span class="skill-percent-text">90%</span>
+                  </div>
+                  <p class="skill-desc">Version control system</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- GitHub -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2-4 skill-item" data-category="tools">
+              <div class="skill-card" style="--width: 90%">
+                <div class="skill-icon-wrap">
+                  <i class="devicon-github-original skill-icon text-white"></i>
+                </div>
+                <div class="skill-info">
+                  <div class="skill-header">
+                    <h3 class="skill-name">GitHub</h3>
+                    <span class="skill-percent-text">90%</span>
+                  </div>
+                  <p class="skill-desc">Repository hosting &amp; collaboration</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.skill-filter-btn');
+            const skillItems = document.querySelectorAll('.skill-item');
+            
+            filterBtns.forEach(btn => {
+              btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filterValue = btn.getAttribute('data-filter');
+                
+                skillItems.forEach(item => {
+                  const categories = item.getAttribute('data-category').split(' ');
+                  if (filterValue === 'all' || categories.includes(filterValue)) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                      item.style.opacity = '1';
+                      item.style.transform = 'scale(1)';
+                    }, 50);
+                  } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                      item.style.display = 'none';
+                    }, 300);
+                  }
+                });
+              });
+            });
+          });
+        </script>
+      </section>
+      <!-- ======================== Technical Skills Section end =========================== -->
+
       <div class="feature-three-area py-120 position-relative z-1">
         <div class="container tw-container-1800-px">
           <div class="row">

@@ -27,6 +27,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body,
     .banner-three-area,
     .about-three-area,
@@ -45,6 +48,7 @@
       width: max-content !important;
       gap: 30px;
     }
+
     .portfolio-three-active .swiper-slide {
       width: 50vw !important;
       max-width: 650px;
@@ -52,6 +56,105 @@
       flex-shrink: 0 !important;
       height: auto !important;
     }
+
+    /* Certifications Section Styling */
+    .certs-section {
+      background: #000;
+      padding: 120px 0;
+    }
+    .cert-card {
+      background-color: transparent;
+      width: 100%;
+      height: 220px; /* Made smaller */
+      perspective: 1000px;
+      border-radius: 12px;
+      margin: 0 auto;
+      max-width: 380px; /* To prevent it from stretching too wide on larger screens */
+    }
+    .cert-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s, box-shadow 0.4s;
+      transform-style: preserve-3d;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(138,43,226,0.2); /* Base glow */
+    }
+    .cert-card:hover .cert-card-inner {
+      transform: rotateY(180deg);
+      box-shadow: 0 0 35px rgba(138,43,226,0.6); /* Intense glow on hover */
+    }
+    .cert-card-front, .cert-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .cert-card-front {
+      background-color: #111;
+      color: white;
+      border: 1px solid rgba(138,43,226,0.4); /* Glowing border */
+      box-shadow: inset 0 0 10px rgba(138,43,226,0.2);
+    }
+    .cert-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+    .cert-front-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 20px; /* Slightly adjusted padding for smaller height */
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+      text-align: left;
+    }
+    .cert-front-overlay h4 {
+      color: #fff;
+      margin: 0;
+      font-size: 16px; /* Adjusted size */
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(138,43,226,0.8); /* Text glow */
+    }
+    .cert-card-back {
+      background-color: #111;
+      color: white;
+      transform: rotateY(180deg);
+      border: 1px solid #8a2be2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-shadow: 0 0 25px rgba(138,43,226,0.5); /* Glow on the back face */
+    }
+    .cert-back-content h4 {
+      color: #b66dff; /* Changed to purple */
+      font-size: 20px;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(182,109,255,0.6); /* Purple glow */
+    }
+    .cert-back-content p {
+      color: #a1a1aa;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .cert-date {
+      color: #8a2be2;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
     @media (max-width: 767px) {
       .portfolio-three-active .swiper-slide {
         width: 80vw !important;
@@ -70,15 +173,19 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    .skill-filter-btn:hover, .skill-filter-btn.active {
+
+    .skill-filter-btn:hover,
+    .skill-filter-btn.active {
       color: #fff;
       background: rgba(138, 43, 226, 0.8) !important;
       border-color: rgba(138, 43, 226, 0.5) !important;
       box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
     }
+
     .skill-item {
       transition: all 0.3s ease;
     }
+
     .skill-card {
       background: #0d0d0d;
       border: 1px solid rgba(138, 43, 226, 0.15);
@@ -97,6 +204,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .skill-icon-wrap {
       flex-shrink: 0;
       width: 55px;
@@ -109,10 +217,12 @@
       border-radius: 12px;
       transition: all 0.3s ease;
     }
+
     .skill-card:hover .skill-icon-wrap {
       border-color: rgba(138, 43, 226, 0.4);
       background: rgba(138, 43, 226, 0.05);
     }
+
     .skill-info {
       flex-grow: 1;
       display: flex;
@@ -120,12 +230,14 @@
       justify-content: center;
       width: 100%;
     }
+
     .skill-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
     }
+
     .skill-percent-text {
       color: #8a2be2;
       font-size: 14px;
@@ -133,21 +245,26 @@
       opacity: 0;
       transition: all 0.3s ease;
     }
+
     .skill-card:hover .skill-percent-text {
       opacity: 1;
     }
+
     .skill-card:hover {
       transform: translateY(-4px);
       border-color: rgba(138, 43, 226, 0.6);
       box-shadow: 0 10px 25px rgba(138, 43, 226, 0.25);
     }
+
     .skill-icon {
       font-size: 2.4rem;
       transition: all 0.3s ease;
     }
+
     .skill-card:hover .skill-icon {
       transform: scale(1.1);
     }
+
     .skill-name {
       color: #fff;
       font-size: 18px;
@@ -155,6 +272,7 @@
       margin: 0;
       transition: all 0.3s ease;
     }
+
     .skill-desc {
       color: #a1a1aa;
       font-size: 12px;
@@ -164,6 +282,7 @@
       overflow: hidden;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .skill-progress-bar {
       width: 100%;
       height: 4px;
@@ -175,6 +294,7 @@
       max-height: 0;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .skill-progress-line {
       height: 100%;
       background: #8a2be2;
@@ -182,17 +302,21 @@
       width: 0;
       transition: width 1s cubic-bezier(0.1, 0.8, 0.2, 1);
     }
+
     .skill-card:hover .skill-progress-line {
       width: var(--width);
     }
+
     .skill-card:hover .skill-desc {
       opacity: 1;
       max-height: 40px;
     }
+
     .skill-card:hover .skill-progress-bar {
       opacity: 1;
       max-height: 10px;
     }
+
     /* Custom 5-column layout */
     @media (min-width: 1200px) {
       .col-xl-2-4 {
@@ -206,6 +330,7 @@
       .banner-three-area {
         padding-block: 100px 40px !important;
       }
+
       h1.banner-three-title {
         font-size: 80px !important;
         transform: scale(1) translateY(0) !important;
@@ -218,6 +343,7 @@
         line-height: 1 !important;
         white-space: nowrap !important;
       }
+
       .banner-three-man {
         position: relative !important;
         inset: auto !important;
@@ -234,6 +360,7 @@
         z-index: 2 !important;
         width: 100% !important;
       }
+
       .banner-three-man img {
         width: 350px !important;
         max-height: 500px !important;
@@ -241,37 +368,129 @@
         margin: 0 auto !important;
       }
     }
+
     @media screen and (max-width: 767px) {
       h1.banner-three-title {
         font-size: 58px !important;
       }
+
       .banner-three-man img {
         width: 320px !important;
         max-height: 450px !important;
       }
     }
+
     @media screen and (max-width: 575px) {
       h1.banner-three-title {
         font-size: 44px !important;
       }
+
       .banner-three-man img {
         width: 280px !important;
         max-height: 400px !important;
       }
     }
+
     @media screen and (max-width: 424px) {
       h1.banner-three-title {
         font-size: 36px !important;
       }
+
       .banner-three-man img {
         width: 240px !important;
         max-height: 360px !important;
       }
     }
+
+    /* ===== MOBILE: Compact Skills Section ===== */
+    @media screen and (max-width: 767px) {
+
+      /* Make skills section padding smaller */
+      .skills-section {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+      }
+
+      /* Section title smaller */
+      .skills-section h2 {
+        font-size: 1.1rem !important;
+        margin-bottom: 10px !important;
+      }
+
+      /* Filter buttons row tighter */
+      .skills-section .d-flex.flex-wrap {
+        gap: 5px !important;
+        margin-bottom: 12px !important;
+      }
+
+      .skill-filter-btn {
+        padding: 4px 10px !important;
+        font-size: 10px !important;
+      }
+
+      /* Skills grid: 3 columns, tight gutter */
+      #skills-grid {
+        --bs-gutter-x: 0.4rem !important;
+        --bs-gutter-y: 0.4rem !important;
+      }
+
+      #skills-grid .skill-item {
+        flex: 0 0 33.3333% !important;
+        max-width: 33.3333% !important;
+      }
+
+      /* Square card */
+      .skill-card {
+        aspect-ratio: 1 / 1 !important;
+        padding: 6px !important;
+        min-height: unset !important;
+        height: auto !important;
+        gap: 4px !important;
+        border-radius: 10px !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+      }
+
+      /* Smaller icon wrapper — square & tight */
+      .skill-icon-wrap {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        border-radius: 8px !important;
+        flex-shrink: 0 !important;
+      }
+
+      /* Smaller icon */
+      .skill-icon {
+        font-size: 1.6rem !important;
+      }
+
+      /* Smaller name */
+      .skill-name {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        line-height: 1.1 !important;
+        word-break: break-word !important;
+      }
+
+      /* Hide hover-only elements on mobile to save space */
+      .skill-percent-text,
+      .skill-desc,
+      .skill-progress-bar {
+        display: none !important;
+      }
+
+      /* skill-info centered */
+      .skill-info {
+        width: auto !important;
+      }
+    }
   </style>
 </head>
 
-<body class="tw-magic-cursor">
+<body>
   <div id="tsparticles" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;"></div>
   <script>
     tsParticles.load("tsparticles", {
@@ -313,11 +532,7 @@
   <div class="side-overlay"></div>
   <!--==================== Sidebar Overlay End ====================-->
 
-  <!--==================== Begin Magic Cursor Start ====================-->
-  <div id="magic-cursor">
-    <div id="ball"></div>
-  </div>
-  <!--==================== Begin Magic Cursor End ====================-->
+
 
   <!-- Custom Toast Message start -->
   <div id="toast-container"></div>
@@ -447,7 +662,7 @@
           <a href="index.html" class="link text-decoration-none d-inline-block" style="text-decoration: none;">
             <div
               style="color: #e2c054; font-family: serif; font-style: italic; font-size: 28px; font-weight: 600; line-height: 1; letter-spacing: 1px;">
-              Vishnu V</div>
+              Visnu ~</div>
             <div
               style="color: #5b7489; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-top: 6px; font-weight: 700;">
               FULL-STACK DEVELOPER</div>
@@ -457,14 +672,37 @@
 
         <!-- Main Navigation Start -->
         <div class="header-main-nav d-none d-lg-block mx-auto">
-          <ul class="d-flex align-items-center m-0 p-0" style="list-style: none; gap: 4px; background: rgba(20, 20, 25, 0.85); backdrop-filter: blur(12px); padding: 8px 12px !important; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
-            <li><a href="#home" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Home</a></li>
-            <li><a href="#about" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">About</a></li>
-            <li><a href="#services" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'; this.style.borderColor='rgba(138,43,226,0.5)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'; this.style.borderColor='transparent'">Services</a></li>
-            <li><a href="#projects" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Projects</a></li>
-            <li><a href="#skills" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Skills</a></li>
-            <li><a href="#certs" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Certs</a></li>
-            <li><a href="#contact" style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'" onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Contact</a></li>
+          <ul class="d-flex align-items-center m-0 p-0"
+            style="list-style: none; gap: 4px; background: rgba(20, 20, 25, 0.85); backdrop-filter: blur(12px); padding: 8px 12px !important; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
+            <li><a href="#home"
+                style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;"
+                onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'"
+                onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Home</a></li>
+            <li><a href="#about"
+                style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;"
+                onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'"
+                onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">About</a></li>
+            <li><a href="#services"
+                style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;"
+                onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'; this.style.borderColor='rgba(138,43,226,0.5)'"
+                onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'; this.style.borderColor='transparent'">Services</a>
+            </li>
+            <li><a href="#projects"
+                style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;"
+                onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'"
+                onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Projects</a></li>
+            <li><a href="#skills"
+                style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;"
+                onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'"
+                onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Skills</a></li>
+            <li><a href="#certs"
+                style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;"
+                onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'"
+                onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Certs</a></li>
+            <li><a href="#contact"
+                style="color: #a1a1aa; text-decoration: none; font-size: 15px; font-weight: 500; padding: 10px 20px; border-radius: 30px; display: inline-block; transition: all 0.3s;"
+                onmouseover="this.style.color='#fff'; this.style.background='rgba(138,43,226,0.8)'"
+                onmouseout="this.style.color='#a1a1aa'; this.style.background='transparent'">Contact</a></li>
           </ul>
         </div>
         <!-- Main Navigation End -->
@@ -624,7 +862,7 @@
   <!-- ==================== Header End Here ==================== -->
   <div id="smooth-wrapper">
     <div id="smooth-content">
-      <section class="banner-three-area">
+      <section class="banner-three-area" id="home">
         <div class="container tw-container-1800-px">
           <div class="row">
             <div class="col-xl-12">
@@ -643,54 +881,51 @@
                   <div class="banner-three-left" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"
                     style="max-width: 480px; margin-top: -150px; margin-left: -80px; background: transparent !important; box-shadow: none !important; border: none !important; padding: 0 !important;">
                     <div
-                      style="font-size: 14px; font-weight: 600; color: #e2c054; letter-spacing: 2px; margin-bottom: 25px;">
+                      style="font-size: 14px; font-weight: 600; color: #09ff5b; letter-spacing: 2px; margin-bottom: 25px;">
                       [ AVAILABLE FOR OPPORTUNITIES ]</div>
                     <h2 class="banner-three-left-title tw-mb-6"
                       style="font-family: serif; font-size: 60px; line-height: 1.1; color: #fff;">
-                      Building Digital <br> Experiences that <br> Create <i
-                        style="color: #e2c054; font-family: serif;">Real Impact.</i>
+                      Building Digital <br> Experiences that Create <i style="color: #e2c054; font-family: serif;">Real
+                        World Impact.</i>
                     </h2>
-                    <p style="font-size: 18px; color: #a1a1aa; line-height: 1.7;">
-                      I'm a Full-Stack Developer passionate about crafting scalable, high-performance web applications
-                      with clean code and exceptional user experience.
-                    </p>
+
                     <!-- Social Icons -->
-                    <div style="display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 16px; margin-top: 30px; flex-wrap: wrap;">
                       <a href="mailto:vishnuvs@email.com" title="Email"
-                        style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid #e2c054; display: flex; align-items: center; justify-content: center; color: #e2c054; font-size: 18px; text-decoration: none; transition: all 0.3s; background: transparent;"
-                        onmouseover="this.style.background='#e2c054';this.style.color='#000'"
-                        onmouseout="this.style.background='transparent';this.style.color='#e2c054'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        style="width: 65px; height: 65px; border-radius: 50%; border: 1px solid #8a2be2; display: flex; align-items: center; justify-content: center; color: #8a2be2; text-decoration: none; transition: all 0.3s; background: transparent; box-shadow: 0 0 15px rgba(138,43,226,0.4);"
+                        onmouseover="this.style.background='#8a2be2';this.style.color='#fff';this.style.boxShadow='0 0 25px rgba(138,43,226,0.8)'"
+                        onmouseout="this.style.background='transparent';this.style.color='#8a2be2';this.style.boxShadow='0 0 15px rgba(138,43,226,0.4)'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor"
                           stroke-width="1.5" viewBox="0 0 24 24">
                           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                           <polyline points="22,6 12,13 2,6" />
                         </svg>
                       </a>
                       <a href="https://github.com/vishnu" target="_blank" title="GitHub"
-                        style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid #e2c054; display: flex; align-items: center; justify-content: center; color: #e2c054; font-size: 18px; text-decoration: none; transition: all 0.3s; background: transparent;"
-                        onmouseover="this.style.background='#e2c054';this.style.color='#000'"
-                        onmouseout="this.style.background='transparent';this.style.color='#e2c054'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        style="width: 65px; height: 65px; border-radius: 50%; border: 1px solid #8a2be2; display: flex; align-items: center; justify-content: center; color: #8a2be2; text-decoration: none; transition: all 0.3s; background: transparent; box-shadow: 0 0 15px rgba(138,43,226,0.4);"
+                        onmouseover="this.style.background='#8a2be2';this.style.color='#fff';this.style.boxShadow='0 0 25px rgba(138,43,226,0.8)'"
+                        onmouseout="this.style.background='transparent';this.style.color='#8a2be2';this.style.boxShadow='0 0 15px rgba(138,43,226,0.4)'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor"
                           stroke-width="1.5" viewBox="0 0 24 24">
                           <path
                             d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                         </svg>
                       </a>
                       <a href="https://twitter.com/vishnu_dev" target="_blank" title="Twitter / X"
-                        style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid #e2c054; display: flex; align-items: center; justify-content: center; color: #e2c054; font-size: 18px; text-decoration: none; transition: all 0.3s; background: transparent;"
-                        onmouseover="this.style.background='#e2c054';this.style.color='#000'"
-                        onmouseout="this.style.background='transparent';this.style.color='#e2c054'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        style="width: 65px; height: 65px; border-radius: 50%; border: 1px solid #8a2be2; display: flex; align-items: center; justify-content: center; color: #8a2be2; text-decoration: none; transition: all 0.3s; background: transparent; box-shadow: 0 0 15px rgba(138,43,226,0.4);"
+                        onmouseover="this.style.background='#8a2be2';this.style.color='#fff';this.style.boxShadow='0 0 25px rgba(138,43,226,0.8)'"
+                        onmouseout="this.style.background='transparent';this.style.color='#8a2be2';this.style.boxShadow='0 0 15px rgba(138,43,226,0.4)'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor"
                           stroke-width="1.5" viewBox="0 0 24 24">
                           <path
                             d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                         </svg>
                       </a>
                       <a href="https://linkedin.com/in/vishnu" target="_blank" title="LinkedIn"
-                        style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid #e2c054; display: flex; align-items: center; justify-content: center; color: #e2c054; font-size: 18px; text-decoration: none; transition: all 0.3s; background: transparent;"
-                        onmouseover="this.style.background='#e2c054';this.style.color='#000'"
-                        onmouseout="this.style.background='transparent';this.style.color='#e2c054'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        style="width: 65px; height: 65px; border-radius: 50%; border: 1px solid #8a2be2; display: flex; align-items: center; justify-content: center; color: #8a2be2; text-decoration: none; transition: all 0.3s; background: transparent; box-shadow: 0 0 15px rgba(138,43,226,0.4);"
+                        onmouseover="this.style.background='#8a2be2';this.style.color='#fff';this.style.boxShadow='0 0 25px rgba(138,43,226,0.8)'"
+                        onmouseout="this.style.background='transparent';this.style.color='#8a2be2';this.style.boxShadow='0 0 15px rgba(138,43,226,0.4)'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor"
                           stroke-width="1.5" viewBox="0 0 24 24">
                           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                           <rect x="2" y="9" width="4" height="12" />
@@ -698,10 +933,10 @@
                         </svg>
                       </a>
                       <a href="https://wa.me/919876543210" target="_blank" title="WhatsApp"
-                        style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid #25d366; display: flex; align-items: center; justify-content: center; color: #25d366; font-size: 18px; text-decoration: none; transition: all 0.3s; background: transparent;"
-                        onmouseover="this.style.background='#25d366';this.style.color='#fff'"
-                        onmouseout="this.style.background='transparent';this.style.color='#25d366'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        style="width: 65px; height: 65px; border-radius: 50%; border: 1px solid #8a2be2; display: flex; align-items: center; justify-content: center; color: #8a2be2; text-decoration: none; transition: all 0.3s; background: transparent; box-shadow: 0 0 15px rgba(138,43,226,0.4);"
+                        onmouseover="this.style.background='#8a2be2';this.style.color='#fff';this.style.boxShadow='0 0 25px rgba(138,43,226,0.8)'"
+                        onmouseout="this.style.background='transparent';this.style.color='#8a2be2';this.style.boxShadow='0 0 15px rgba(138,43,226,0.4)'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                           fill="currentColor">
                           <path
                             d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
@@ -830,7 +1065,7 @@
           VIEW PROJECTS
         </a>
       </div>
-      <section class="about-three-area py-120 position-relative z-1">
+      <section class="about-three-area py-120 position-relative z-1" id="about">
         <div class="container tw-container-1800-px">
           <div class="about-three-top position-relative z-1">
             <div class="row justify-content-center tw-mb-21">
@@ -838,18 +1073,19 @@
                 <div class="text-center">
                   <h2 class="about-three-title tw-text-15 tw-itm-title tw-itm-anim"
                     style="color: #ffffff !important; opacity: 0.9;">
-                    I am dedicated to bringing your vision to life by crafting
-                    unique, highly aesthetic, and impactful digital
-                    experiences. My work speaks louder than words—explore the
-                    results.
+                    I transform ideas into impactful digital experiences through strategic design and modern
+                    engineering.
+                    Every solution is crafted with precision, innovation, and purpose to deliver exceptional results.
+                    Building products that inspire trust, create value, and leave a lasting impact.
+
                   </h2>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-xl-6">
-                <div class="about-three-thumb tw-clip-anim tw-rounded-lg" data-aos="fade-up"
-                  data-aos-duration="1000" data-aos-delay="200" style="max-width: 70%; margin: 0 auto;">
+                <div class="about-three-thumb tw-clip-anim tw-rounded-lg" data-aos="fade-up" data-aos-duration="1000"
+                  data-aos-delay="200" style="max-width: 70%; margin: 0 auto;">
                   <img class="tw-anim-img w-100 tw-rounded-lg" data-animate="true"
                     src="assets/images/thumbs/about-three-thumb.png" alt="thumb" />
                 </div>
@@ -858,25 +1094,31 @@
                 <div class="about-three-right" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                   <div>
                     <p class="tw-text-xl tw-mb-10">
-                      I’m a passionate digital designer and web developer
-                      focused on creating modern, user-centered digital
-                      experiences. I blend creativity with clean, efficient
-                      code to build websites that are not only visually
-                      appealing but also functional, fast, and scalable.
+                      Creating exceptional digital experiences is more than my profession—it's my passion.
+
+                      As a Full Stack Developer, UI/UX Designer, and AI Enthusiast,
+                      I design and develop elegant, scalable, and
+                      purpose-driven digital products that seamlessly
+                      combine creativity with modern engineering.
+                      My goal is to build solutions that are visually compelling,
+                      technically robust, and centered around real user needs.
                     </p>
                     <p class="tw-text-xl tw-mb-10">
-                      With a strong eye for design & a solid technical
-                      foundation, I transform complex ideas into simple
-                      intuitive digital solutions. I believe great design is
-                      purposeful-every layout, interaction, and line of code
-                      is crafted to enhance usability and deliver real value.
+                      I believe great products are not defined by complexity,
+                      but by **clarity, performance, and meaningful impact.
+                      Every interface, interaction, and line of code is crafted
+                      with intention to deliver intuitive experiences that
+                      users trust and enjoy.
+
                     </p>
                     <p class="tw-text-xl tw-mb-10">
-                      From concept to launch, I work closely with clients to
-                      understand their goals, audience and brand vision. my
-                      collaborative approach ensures and project reflects the
-                      client’s identity while business objectives and
-                      performance standards.
+                      From concept to launch, I collaborate closely with clients
+                      to understand their vision, business goals, target audience,
+                      and brand identity. This collaborative approach ensures that
+                      every project aligns with their objectives while delivering
+                      engaging user experiences, measurable business value, and
+                      high standards of quality, performance, and scalability.
+
                     </p>
                   </div>
                   <div class="about-three-counter d-inline-block">
@@ -1129,8 +1371,10 @@
           <div class="row">
             <div class="col-xl-12">
               <div class="tw-mb-12">
-                <h2 class="tw-text-15 text-white" style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; font-family: 'Syne', sans-serif;">
-                  Projects Showcase - <span style="color: #8a2be2; font-style: italic; font-family: serif;">WHAT I'VE BUILT!</span>
+                <h2 class="tw-text-15 text-white"
+                  style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; font-family: 'Syne', sans-serif;">
+                  Projects Showcase - <span style="color: #8a2be2; font-style: italic; font-family: serif;">WHAT I'VE
+                    BUILT!</span>
                 </h2>
               </div>
             </div>
@@ -1139,150 +1383,154 @@
         <div class="container tw-container-1800-px">
           <div class="row">
             <div class="col-xl-12">
-              <div
-                class="portfolio-three-wrapper position-relative z-1">
+              <div class="portfolio-three-wrapper position-relative z-1">
                 <div class="portfolio-three-active overflow-hidden">
                   <div class="swiper-wrapper align-items-center">
                     <div class="swiper-slide">
-                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper" style="margin-top: 0 !important; max-width: 100% !important;">
-                  <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
-                    <div class="tw-mb-6">
-                      <div>
-                        <h2 class="tw-text-605 fw-medium tw-mb-4">
-                          <a class="hover-text-main-two-600" href="portfolio-details.html">Epic Strategy App</a>
-                        </h2>
+                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
+                        style="margin-top: 0 !important; max-width: 100% !important;">
+                        <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
+                          <div class="tw-mb-6">
+                            <div>
+                              <h2 class="tw-text-605 fw-medium tw-mb-4">
+                                <a class="hover-text-main-two-600" href="portfolio-details.html">Epic Strategy App</a>
+                              </h2>
+                            </div>
+                            <div class="portfolio-three-list portfolio-list">
+                              <ul class="d-flex tw-gap-205 flex-wrap">
+                                <li>
+                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                    href="#">BRANDING</a>
+                                </li>
+                                <li>
+                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                    href="#">web DESIGN</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="portfolio-three-button">
+                              <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
+                                href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
+                          <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
+                              class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb1.jpg"
+                              alt="thumb" /></a>
+                        </div>
                       </div>
-                      <div class="portfolio-three-list portfolio-list">
-                        <ul class="d-flex tw-gap-205 flex-wrap">
-                          <li>
-                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                              href="#">BRANDING</a>
-                          </li>
-                          <li>
-                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                              href="#">web DESIGN</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="portfolio-three-button">
-                        <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                          href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
-                    <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
-                        class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb1.jpg"
-                        alt="thumb" /></a>
-                  </div>
-                </div>
                     </div>
                     <div class="swiper-slide">
-                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper" style="margin-top: 0 !important; max-width: 100% !important;">
-                  <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
-                    <div class="tw-mb-6">
-                      <div>
-                        <h2 class="tw-text-605 fw-medium tw-mb-4">
-                          <a class="hover-text-main-two-600" href="portfolio-details.html">Branding Identity</a>
-                        </h2>
+                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
+                        style="margin-top: 0 !important; max-width: 100% !important;">
+                        <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
+                          <div class="tw-mb-6">
+                            <div>
+                              <h2 class="tw-text-605 fw-medium tw-mb-4">
+                                <a class="hover-text-main-two-600" href="portfolio-details.html">Branding Identity</a>
+                              </h2>
+                            </div>
+                            <div class="portfolio-three-list portfolio-list">
+                              <ul class="d-flex tw-gap-205 flex-wrap">
+                                <li>
+                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                    href="#">BRANDING</a>
+                                </li>
+                                <li>
+                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                    href="#">web DESIGN</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="portfolio-three-button">
+                            <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
+                              href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
+                          <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
+                              class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb2.jpg"
+                              alt="thumb" /></a>
+                        </div>
                       </div>
-                      <div class="portfolio-three-list portfolio-list">
-                        <ul class="d-flex tw-gap-205 flex-wrap">
-                          <li>
-                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                              href="#">BRANDING</a>
-                          </li>
-                          <li>
-                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                              href="#">web DESIGN</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="portfolio-three-button">
-                      <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                        href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
-                    </div>
-                  </div>
-                  <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
-                    <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
-                        class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb2.jpg"
-                        alt="thumb" /></a>
-                  </div>
-                </div>
                     </div>
                     <div class="swiper-slide">
-                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper" style="margin-top: 0 !important; max-width: 100% !important;">
-                  <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
-                    <div class="tw-mb-6">
-                      <div>
-                        <h2 class="tw-text-605 fw-medium tw-mb-4">
-                          <a class="hover-text-main-two-600" href="portfolio-details.html">PixelCraft Mobile UI</a>
-                        </h2>
+                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
+                        style="margin-top: 0 !important; max-width: 100% !important;">
+                        <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
+                          <div class="tw-mb-6">
+                            <div>
+                              <h2 class="tw-text-605 fw-medium tw-mb-4">
+                                <a class="hover-text-main-two-600" href="portfolio-details.html">PixelCraft Mobile
+                                  UI</a>
+                              </h2>
+                            </div>
+                            <div class="portfolio-three-list portfolio-list">
+                              <ul class="d-flex tw-gap-205 flex-wrap">
+                                <li>
+                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                    href="#">BRANDING</a>
+                                </li>
+                                <li>
+                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                    href="#">web DESIGN</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="portfolio-three-button">
+                            <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
+                              href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
+                          <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
+                              class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb3.jpg"
+                              alt="thumb" /></a>
+                        </div>
                       </div>
-                      <div class="portfolio-three-list portfolio-list">
-                        <ul class="d-flex tw-gap-205 flex-wrap">
-                          <li>
-                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                              href="#">BRANDING</a>
-                          </li>
-                          <li>
-                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                              href="#">web DESIGN</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="portfolio-three-button">
-                      <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                        href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
-                    </div>
-                  </div>
-                  <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
-                    <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
-                        class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb3.jpg"
-                        alt="thumb" /></a>
-                  </div>
-                </div>
                     </div>
                     <div class="swiper-slide">
-                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper" style="margin-top: 0 !important; max-width: 100% !important;">
-                  <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
-                    <div class="tw-mb-6">
-                      <div>
-                        <h2 class="tw-text-605 fw-medium tw-mb-4">
-                          <a class="hover-text-main-two-600" href="portfolio-details.html">Creative Studio</a>
-                        </h2>
-                      </div>
-                      <div class="portfolio-three-list portfolio-list">
-                        <ul class="d-flex tw-gap-205 flex-wrap">
-                          <li>
-                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                              href="#">BRANDING</a>
-                          </li>
-                          <li>
-                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                              href="#">web DESIGN</a>
-                          </li>
-                        </ul>
+                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
+                        style="margin-top: 0 !important; max-width: 100% !important;">
+                        <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
+                          <div class="tw-mb-6">
+                            <div>
+                              <h2 class="tw-text-605 fw-medium tw-mb-4">
+                                <a class="hover-text-main-two-600" href="portfolio-details.html">Creative Studio</a>
+                              </h2>
+                            </div>
+                            <div class="portfolio-three-list portfolio-list">
+                              <ul class="d-flex tw-gap-205 flex-wrap">
+                                <li>
+                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                    href="#">BRANDING</a>
+                                </li>
+                                <li>
+                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                    href="#">web DESIGN</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="portfolio-three-button">
+                            <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
+                              href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
+                          <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
+                              class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb4.jpg"
+                              alt="thumb" /></a>
+                        </div>
                       </div>
                     </div>
-                    <div class="portfolio-three-button">
-                      <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                        href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
-                    </div>
-                  </div>
-                  <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
-                    <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
-                        class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb4.jpg"
-                        alt="thumb" /></a>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
               </div>
             </div>
           </div>
@@ -1295,10 +1543,12 @@
           <div class="row">
             <div class="col-xl-12">
               <div class="text-center tw-mb-12">
-                <h2 class="tw-text-15 text-white" style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; font-family: 'Syne', sans-serif; margin-bottom: 30px;">
-                  Technical Skills - <span style="color: #8a2be2; font-style: italic; font-family: serif;">CORE EXPERTISE!</span>
+                <h2 class="tw-text-15 text-white"
+                  style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; font-family: 'Syne', sans-serif; margin-bottom: 30px;">
+                  Technical Skills - <span style="color: #8a2be2; font-style: italic; font-family: serif;">CORE
+                    EXPERTISE!</span>
                 </h2>
-                
+
                 <!-- Filter Buttons -->
                 <div class="d-flex flex-wrap justify-content-center gap-3" style="margin-bottom: 50px;">
                   <button class="skill-filter-btn active" data-filter="all">All</button>
@@ -1311,7 +1561,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Skills Grid -->
           <div class="row g-4 justify-content-center" id="skills-grid">
             <!-- C++ -->
@@ -1620,42 +1870,195 @@
                 </div>
               </div>
             </div>
-        </div>
-        
-        <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            const filterBtns = document.querySelectorAll('.skill-filter-btn');
-            const skillItems = document.querySelectorAll('.skill-item');
-            
-            filterBtns.forEach(btn => {
-              btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                const filterValue = btn.getAttribute('data-filter');
-                
-                skillItems.forEach(item => {
-                  const categories = item.getAttribute('data-category').split(' ');
-                  if (filterValue === 'all' || categories.includes(filterValue)) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                      item.style.opacity = '1';
-                      item.style.transform = 'scale(1)';
-                    }, 50);
-                  } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                      item.style.display = 'none';
-                    }, 300);
-                  }
+          </div>
+
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              const filterBtns = document.querySelectorAll('.skill-filter-btn');
+              const skillItems = document.querySelectorAll('.skill-item');
+
+              filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                  filterBtns.forEach(b => b.classList.remove('active'));
+                  btn.classList.add('active');
+
+                  const filterValue = btn.getAttribute('data-filter');
+
+                  skillItems.forEach(item => {
+                    const categories = item.getAttribute('data-category').split(' ');
+                    if (filterValue === 'all' || categories.includes(filterValue)) {
+                      item.style.display = 'block';
+                      setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                      }, 50);
+                    } else {
+                      item.style.opacity = '0';
+                      item.style.transform = 'scale(0.8)';
+                      setTimeout(() => {
+                        item.style.display = 'none';
+                      }, 300);
+                    }
+                  });
                 });
               });
             });
-          });
-        </script>
+          </script>
       </section>
       <!-- ======================== Technical Skills Section end =========================== -->
+
+      <!-- ======================== Certifications Section start =========================== -->
+      <section class="certs-section position-relative z-1" id="certs">
+        <div class="container tw-container-1800-px">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="text-center tw-mb-12">
+                <h2 class="tw-text-15 text-white"
+                  style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; font-family: 'Syne', sans-serif; margin-bottom: 50px;">
+                  Certifications - <span style="color: #8a2be2; font-style: italic; font-family: serif;">LEARNING MILESTONES!</span>
+                </h2>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row g-4 justify-content-center">
+            <!-- Card 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="cert-card">
+                <div class="cert-card-inner">
+                  <div class="cert-card-front">
+                    <img src="assets/images/thumbs/hackerrank-react.jpg" alt="Frontend Developer (React)">
+                    <div class="cert-front-overlay">
+                      <h4>Frontend Developer (React)</h4>
+                    </div>
+                  </div>
+                  <div class="cert-card-back">
+                    <div class="cert-back-content">
+                      <i class="ph ph-certificate tw-text-4xl tw-mb-4" style="color: #b66dff; filter: drop-shadow(0 0 8px rgba(182,109,255,0.8));"></i>
+                      <h4>Frontend Developer (React)</h4>
+                      <p>Passed the HackerRank role certification test, demonstrating proficiency in React.</p>
+                      <span class="cert-date">Issued: 30 Jul, 2026</span>
+                      <a href="https://www.hackerrank.com/certificates/iframe/dda757132c0e" target="_blank" style="margin-top: 15px; padding: 8px 20px; font-size: 13px; background: #8a2be2; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='#e2c054'; this.style.color='#000';" onmouseout="this.style.background='#8a2be2'; this.style.color='#fff';">VIEW</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="cert-card">
+                <div class="cert-card-inner">
+                  <div class="cert-card-front">
+                    <img src="assets/images/thumbs/hackerrank-software.jpg" alt="Software Engineer">
+                    <div class="cert-front-overlay">
+                      <h4>Software Engineer</h4>
+                    </div>
+                  </div>
+                  <div class="cert-card-back">
+                    <div class="cert-back-content">
+                      <i class="ph ph-laptop tw-text-4xl tw-mb-4" style="color: #b66dff; filter: drop-shadow(0 0 8px rgba(182,109,255,0.8));"></i>
+                      <h4>Software Engineer</h4>
+                      <p>Passed the HackerRank role certification test, demonstrating proficiency as a Software Engineer.</p>
+                      <span class="cert-date">Issued: 04 Aug, 2026</span>
+                      <a href="https://www.hackerrank.com/certificates/iframe/d2db229c7892" target="_blank" style="margin-top: 15px; padding: 8px 20px; font-size: 13px; background: #8a2be2; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='#e2c054'; this.style.color='#000';" onmouseout="this.style.background='#8a2be2'; this.style.color='#fff';">VIEW</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="cert-card">
+                <div class="cert-card-inner">
+                  <div class="cert-card-front">
+                    <img src="assets/images/thumbs/cert.png" alt="Agentic AI & LLMs">
+                    <div class="cert-front-overlay">
+                      <h4>Agentic AI &amp; LLMs</h4>
+                    </div>
+                  </div>
+                  <div class="cert-card-back">
+                    <div class="cert-back-content">
+                      <i class="ph ph-robot tw-text-4xl tw-mb-4" style="color: #e2c054;"></i>
+                      <h4>Agentic AI &amp; LLMs</h4>
+                      <p>In-depth understanding of integrating Large Language Models and building AI-driven solutions.</p>
+                      <span class="cert-date">Issued: 2024</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="cert-card">
+                <div class="cert-card-inner">
+                  <div class="cert-card-front">
+                    <img src="assets/images/thumbs/cert.png" alt="Cloud Deployment & DevOps">
+                    <div class="cert-front-overlay">
+                      <h4>Cloud Deployment &amp; DevOps</h4>
+                    </div>
+                  </div>
+                  <div class="cert-card-back">
+                    <div class="cert-back-content">
+                      <i class="ph ph-cloud tw-text-4xl tw-mb-4" style="color: #e2c054;"></i>
+                      <h4>Cloud Deployment &amp; DevOps</h4>
+                      <p>Certified in implementing CI/CD pipelines, containerization, and cloud infrastructure management.</p>
+                      <span class="cert-date">Issued: 2022</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="cert-card">
+                <div class="cert-card-inner">
+                  <div class="cert-card-front">
+                    <img src="assets/images/thumbs/cert.png" alt="React & Next.js Professional">
+                    <div class="cert-front-overlay">
+                      <h4>React &amp; Next.js Professional</h4>
+                    </div>
+                  </div>
+                  <div class="cert-card-back">
+                    <div class="cert-back-content">
+                      <i class="ph ph-code tw-text-4xl tw-mb-4" style="color: #e2c054;"></i>
+                      <h4>React &amp; Next.js Professional</h4>
+                      <p>Advanced strategies for building high-performance, server-rendered React applications.</p>
+                      <span class="cert-date">Issued: 2023</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="cert-card">
+                <div class="cert-card-inner">
+                  <div class="cert-card-front">
+                    <img src="assets/images/thumbs/cert.png" alt="Cybersecurity Fundamentals">
+                    <div class="cert-front-overlay">
+                      <h4>Cybersecurity Fundamentals</h4>
+                    </div>
+                  </div>
+                  <div class="cert-card-back">
+                    <div class="cert-back-content">
+                      <i class="ph ph-shield-check tw-text-4xl tw-mb-4" style="color: #e2c054;"></i>
+                      <h4>Cybersecurity Fundamentals</h4>
+                      <p>Ensuring web application security, mitigating vulnerabilities, and implementing robust authentication.</p>
+                      <span class="cert-date">Issued: 2024</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======================== Certifications Section end =========================== -->
 
       <div class="feature-three-area py-120 position-relative z-1">
         <div class="container tw-container-1800-px">
@@ -2025,7 +2428,7 @@
         </div>
       </section>
 
-      <section class="footer-three-area pt-120 tw-pb-10 position-relative z-1">
+      <section class="footer-three-area pt-120 tw-pb-10 position-relative z-1" id="contact">
         <div class="container tw-container-1800-px">
           <div class="row justify-content-between pb-120">
             <div class="col-xl-5 col-lg-6">
@@ -2041,7 +2444,7 @@
                     href="mailto:shan@gmail.com">vishnu0907s@gmail.com</a>
                   <span class="tw-text-2xl fw-medium text-main-600">//</span>
                   <a class="tw-text-2xl fw-medium text-main-600 hover-underline hover-text-white"
-                    href="tel:+442039991245">+44 20 3999 1245</a>
+                    href="tel:+442039991245">+91 9342153907</a>
                 </div>
                 <div class="footer-three-top-info tw-p-705 tw-rounded-lg d-flex tw-gap-6">
                   <div class="footer-three-top-thumb tw-w-160-px">

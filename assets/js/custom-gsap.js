@@ -56,6 +56,18 @@
       normalizeScroll: false,
       ignoreMobileResize: true,
     });
+
+    // Nav anchor smooth scroll via GSAP ScrollSmoother
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var targetId = this.getAttribute('href');
+        var target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          smoother.scrollTo(target, true, "top 100px");
+        }
+      });
+    });
   }
 
   ////////////////////////////////////////////////////

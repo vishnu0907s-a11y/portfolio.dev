@@ -201,8 +201,8 @@ Search for social media icons (`ph-facebook-logo`, `ph-x-logo`, `ph-instagram-lo
 ### 6. Configuring Contact Info & Email
 In `index.html` lines 2083-2092:
 ```html
-<a href="mailto:shan@gmail.com">shan@gmail.com</a>
-<a href="tel:+442039991245">+44 20 3999 1245</a>
+<a href="mailto:shan@gmail.com">vishnu0907s@gmail.com</a>
+<a href="tel:+442039991245">+91 9342153907</a>
 ```
 Replace with your actual email address and telephone number.
 

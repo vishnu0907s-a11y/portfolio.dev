@@ -24,12 +24,13 @@
   <!-- Main css -->
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
   <style>
     html {
       scroll-behavior: smooth;
     }
+
     body,
     .banner-three-area,
     .about-three-area,
@@ -62,15 +63,19 @@
       background: #000;
       padding: 120px 0;
     }
+
     .cert-card {
       background-color: transparent;
       width: 100%;
-      height: 220px; /* Made smaller */
+      height: 220px;
+      /* Made smaller */
       perspective: 1000px;
       border-radius: 12px;
       margin: 0 auto;
-      max-width: 380px; /* To prevent it from stretching too wide on larger screens */
+      max-width: 380px;
+      /* To prevent it from stretching too wide on larger screens */
     }
+
     .cert-card-inner {
       position: relative;
       width: 100%;
@@ -79,13 +84,18 @@
       transition: transform 0.8s, box-shadow 0.4s;
       transform-style: preserve-3d;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(138,43,226,0.2); /* Base glow */
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+      /* Base glow */
     }
+
     .cert-card:hover .cert-card-inner {
       transform: rotateY(180deg);
-      box-shadow: 0 0 35px rgba(138,43,226,0.6); /* Intense glow on hover */
+      box-shadow: 0 0 35px rgba(138, 43, 226, 0.6);
+      /* Intense glow on hover */
     }
-    .cert-card-front, .cert-card-back {
+
+    .cert-card-front,
+    .cert-card-back {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -94,12 +104,15 @@
       border-radius: 12px;
       overflow: hidden;
     }
+
     .cert-card-front {
       background-color: #111;
       color: white;
-      border: 1px solid rgba(138,43,226,0.4); /* Glowing border */
-      box-shadow: inset 0 0 10px rgba(138,43,226,0.2);
+      border: 1px solid rgba(138, 43, 226, 0.4);
+      /* Glowing border */
+      box-shadow: inset 0 0 10px rgba(138, 43, 226, 0.2);
     }
+
     .cert-card-front img {
       width: 100%;
       height: 100%;
@@ -107,22 +120,28 @@
       opacity: 0.8;
       transition: 0.3s;
     }
+
     .cert-front-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      padding: 15px 20px; /* Slightly adjusted padding for smaller height */
-      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+      padding: 15px 20px;
+      /* Slightly adjusted padding for smaller height */
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
       text-align: left;
     }
+
     .cert-front-overlay h4 {
       color: #fff;
       margin: 0;
-      font-size: 16px; /* Adjusted size */
+      font-size: 16px;
+      /* Adjusted size */
       font-weight: 600;
-      text-shadow: 0 0 10px rgba(138,43,226,0.8); /* Text glow */
+      text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+      /* Text glow */
     }
+
     .cert-card-back {
       background-color: #111;
       color: white;
@@ -133,20 +152,26 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      box-shadow: 0 0 25px rgba(138,43,226,0.5); /* Glow on the back face */
+      box-shadow: 0 0 25px rgba(138, 43, 226, 0.5);
+      /* Glow on the back face */
     }
+
     .cert-back-content h4 {
-      color: #b66dff; /* Changed to purple */
+      color: #b66dff;
+      /* Changed to purple */
       font-size: 20px;
       margin-bottom: 15px;
-      text-shadow: 0 0 10px rgba(182,109,255,0.6); /* Purple glow */
+      text-shadow: 0 0 10px rgba(182, 109, 255, 0.6);
+      /* Purple glow */
     }
+
     .cert-back-content p {
       color: #a1a1aa;
       font-size: 14px;
       line-height: 1.5;
       margin-bottom: 20px;
     }
+
     .cert-date {
       color: #8a2be2;
       font-size: 12px;
@@ -662,7 +687,7 @@
           <a href="index.html" class="link text-decoration-none d-inline-block" style="text-decoration: none;">
             <div
               style="color: #e2c054; font-family: serif; font-style: italic; font-size: 28px; font-weight: 600; line-height: 1; letter-spacing: 1px;">
-              Visnu ~</div>
+              Vishnu ~</div>
             <div
               style="color: #5b7489; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-top: 6px; font-weight: 700;">
               FULL-STACK DEVELOPER</div>
@@ -862,24 +887,27 @@
   <!-- ==================== Header End Here ==================== -->
   <div id="smooth-wrapper">
     <div id="smooth-content">
-      <section class="banner-three-area" id="home">
+      <section class="banner-three-area" id="home" style="padding-top: 10px;">
         <div class="container tw-container-1800-px">
           <div class="row">
             <div class="col-xl-12">
               <div class="banner-three-wrapper position-relative z-1">
                 <h1 class="banner-three-title text-black tw-mb-30"
-                  style="color: #ffffff !important; transform: scale(0.7) translateY(100px); display: block; width: max-content; max-width: none; white-space: nowrap; margin: 0 auto; position: relative; z-index: 0;">
-                  developer
+                  style="background: linear-gradient(180deg, #ae9fbd, #76747e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2); transform: scale(0.7) translateY(100px); display: block; width: max-content; max-width: none; white-space: nowrap; margin: 0 auto; position: relative; z-index: 0;">
+                  DEVELOPER
+                  <span class="d-none d-md-block"
+                    style="position: absolute; left: 20%; top: 35%; transform: translate(-50%, -50%) rotate(-8deg); font-family: 'Great Vibes', cursive; font-size: 90px; -webkit-text-fill-color: #4f00c6; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); font-weight: normal; z-index: 3; letter-spacing: 1px; white-space: nowrap;">Building
+                    the Future.</span>
                 </h1>
-                <div class="banner-three-man position-absolute start-50 translate-middle-x"
-                  style="margin-top: -420px; z-index: 2;">
+                <div class="banner-three-man position-absolute start-50"
+                  style="transform: translateX(-50%) translateY(120px); z-index: 2;">
                   <img src="assets/images/shapes/banner-three-man.png" alt="man"
-                    style="width: 530px; max-height: 750px; object-fit: contain;" />
+                    style="width: 530px; max-height: 750px; object-fit: contain; -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%); mask-image: linear-gradient(to bottom, black 80%, transparent 100%);" />
                 </div>
                 <div class="banner-three-wrap d-flex justify-content-between align-items-center position-relative z-1"
                   style="transform: scale(0.8); transform-origin: center center; margin-top: -30px; margin-bottom: -50px;">
                   <div class="banner-three-left" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"
-                    style="max-width: 480px; margin-top: -150px; margin-left: -80px; background: transparent !important; box-shadow: none !important; border: none !important; padding: 0 !important;">
+                    style="max-width: 480px; margin-top: -50px; margin-left: -80px; background: transparent !important; box-shadow: none !important; border: none !important; padding: 0 !important;">
                     <div
                       style="font-size: 14px; font-weight: 600; color: #09ff5b; letter-spacing: 2px; margin-bottom: 25px;">
                       [ AVAILABLE FOR OPPORTUNITIES ]</div>
@@ -949,106 +977,131 @@
                     <!-- Removed text to fit in one screen and match image -->
                   </div>
                   <div class="banner-three-right tw-rounded-lg" data-aos="fade-up" data-aos-duration="1000"
-                    data-aos-delay="300" style="max-width: 380px; margin-right: -80px; margin-top: 100px;">
-                    <div class="tw-rounded-lg p-4"
-                      style="background-color: #111; border: 1px solid #e2c054; box-shadow: 0 0 25px rgba(226, 192, 84, 0.4);">
+                    data-aos-delay="300"
+                    style="max-width: 380px; margin-right: -80px; margin-top: -20px; background: transparent !important; box-shadow: none !important; padding: 0 !important;">
+                    <div class="p-4" style="background: transparent;">
                       <div
-                        style="font-size: 11px; letter-spacing: 2px; color: #a1a1aa; margin-bottom: 25px; text-transform: uppercase;">
-                        What I Do</div>
+                        style="font-size: 11px; letter-spacing: 3px; color: #8a2be2; margin-bottom: 22px; text-transform: uppercase; text-shadow: 0 0 10px rgba(138,43,226,0.5);">
+                        ✦ What I Do</div>
 
-                      <div class="d-flex align-items-start mb-3"
-                        style="border-bottom: 1px solid #333; padding-bottom: 15px;">
+                      <!-- DEVELOP card -->
+                      <div class="d-flex align-items-center mb-3"
+                        style="border: 1px solid rgba(138,43,226,0.4); padding: 14px 15px; border-radius: 14px; background: linear-gradient(135deg, rgba(138,43,226,0.08), rgba(0,0,0,0.5)); box-shadow: 0 0 18px rgba(138,43,226,0.1); transition: all 0.3s;"
+                        onmouseover="this.style.boxShadow='0 0 28px rgba(138,43,226,0.35)'; this.style.borderColor='rgba(138,43,226,0.8)'"
+                        onmouseout="this.style.boxShadow='0 0 18px rgba(138,43,226,0.1)'; this.style.borderColor='rgba(138,43,226,0.4)'">
                         <div
-                          style="color: #e2c054; border: 1px solid #444; padding: 10px 12px; border-radius: 8px; margin-right: 15px; font-size: 18px; line-height: 1;">
-                          &lt; &gt;
+                          style="color: #b66dff; border: 1px solid rgba(138,43,226,0.5); padding: 10px 12px; border-radius: 10px; margin-right: 15px; font-size: 18px; line-height: 1; background: rgba(138,43,226,0.1); box-shadow: 0 0 12px rgba(138,43,226,0.3); min-width: 44px; text-align: center;">
+                          &lt;&gt;
                         </div>
                         <div>
                           <h6
-                            style="color: #fff; margin-bottom: 5px; font-size: 14px; font-weight: 600; letter-spacing: 1px;">
+                            style="color: #fff; margin-bottom: 4px; font-size: 13px; font-weight: 700; letter-spacing: 1.5px;">
                             DEVELOP</h6>
-                          <p style="color: #a1a1aa; font-size: 13px; margin: 0; line-height: 1.4;">Building scalable and
+                          <p style="color: #a1a1aa; font-size: 12px; margin: 0; line-height: 1.5;">Building scalable and
                             efficient web applications.</p>
                         </div>
                       </div>
 
-                      <div class="d-flex align-items-start mb-3"
-                        style="border-bottom: 1px solid #333; padding-bottom: 15px;">
+                      <!-- DESIGN card -->
+                      <div class="d-flex align-items-center mb-3"
+                        style="border: 1px solid rgba(138,43,226,0.4); padding: 14px 15px; border-radius: 14px; background: linear-gradient(135deg, rgba(138,43,226,0.08), rgba(0,0,0,0.5)); box-shadow: 0 0 18px rgba(138,43,226,0.1); transition: all 0.3s;"
+                        onmouseover="this.style.boxShadow='0 0 28px rgba(138,43,226,0.35)'; this.style.borderColor='rgba(138,43,226,0.8)'"
+                        onmouseout="this.style.boxShadow='0 0 18px rgba(138,43,226,0.1)'; this.style.borderColor='rgba(138,43,226,0.4)'">
                         <div
-                          style="color: #e2c054; border: 1px solid #444; padding: 10px 12px; border-radius: 8px; margin-right: 15px; font-size: 18px; line-height: 1;">
-                          &#9998;
+                          style="color: #b66dff; border: 1px solid rgba(138,43,226,0.5); padding: 10px 12px; border-radius: 10px; margin-right: 15px; font-size: 18px; line-height: 1; background: rgba(138,43,226,0.1); box-shadow: 0 0 12px rgba(138,43,226,0.3); min-width: 44px; text-align: center;">
+                          ✏️
                         </div>
                         <div>
                           <h6
-                            style="color: #fff; margin-bottom: 5px; font-size: 14px; font-weight: 600; letter-spacing: 1px;">
+                            style="color: #fff; margin-bottom: 4px; font-size: 13px; font-weight: 700; letter-spacing: 1.5px;">
                             DESIGN</h6>
-                          <p style="color: #a1a1aa; font-size: 13px; margin: 0; line-height: 1.4;">Creating clean,
+                          <p style="color: #a1a1aa; font-size: 12px; margin: 0; line-height: 1.5;">Creating clean,
                             modern and user-friendly interfaces.</p>
                         </div>
                       </div>
 
-                      <div class="d-flex align-items-start mb-4"
-                        style="border-bottom: 1px solid #333; padding-bottom: 25px;">
+                      <!-- DEPLOY card -->
+                      <div class="d-flex align-items-center mb-4"
+                        style="border: 1px solid rgba(138,43,226,0.4); padding: 14px 15px; border-radius: 14px; background: linear-gradient(135deg, rgba(138,43,226,0.08), rgba(0,0,0,0.5)); box-shadow: 0 0 18px rgba(138,43,226,0.1); transition: all 0.3s;"
+                        onmouseover="this.style.boxShadow='0 0 28px rgba(138,43,226,0.35)'; this.style.borderColor='rgba(138,43,226,0.8)'"
+                        onmouseout="this.style.boxShadow='0 0 18px rgba(138,43,226,0.1)'; this.style.borderColor='rgba(138,43,226,0.4)'">
                         <div
-                          style="color: #e2c054; border: 1px solid #444; padding: 10px 15px; border-radius: 8px; margin-right: 15px; font-size: 18px; line-height: 1;">
-                          &#9889;
+                          style="color: #e2c054; border: 1px solid rgba(226,192,84,0.5); padding: 10px 12px; border-radius: 10px; margin-right: 15px; font-size: 18px; line-height: 1; background: rgba(226,192,84,0.08); box-shadow: 0 0 12px rgba(226,192,84,0.2); min-width: 44px; text-align: center;">
+                          ⚡
                         </div>
                         <div>
                           <h6
-                            style="color: #fff; margin-bottom: 5px; font-size: 14px; font-weight: 600; letter-spacing: 1px;">
+                            style="color: #fff; margin-bottom: 4px; font-size: 13px; font-weight: 700; letter-spacing: 1.5px;">
                             DEPLOY</h6>
-                          <p style="color: #a1a1aa; font-size: 13px; margin: 0; line-height: 1.4;">Deploying
+                          <p style="color: #a1a1aa; font-size: 12px; margin: 0; line-height: 1.5;">Deploying
                             applications with performance and security.</p>
                         </div>
                       </div>
 
-                      <div class="row text-center mb-4"
-                        style="border-bottom: 1px solid #333; padding-bottom: 20px; margin: 0;">
-                        <div class="col-4" style="border-right: 1px solid #333; padding: 0;">
-                          <div style="color: #e2c054; font-size: 26px; font-family: serif; font-style: italic;">2+</div>
-                          <div style="color: #a1a1aa; font-size: 9px; letter-spacing: 1px; text-transform: uppercase;">
-                            Years<br>Experience</div>
-                        </div>
-                        <div class="col-4" style="border-right: 1px solid #333; padding: 0;">
-                          <div style="color: #e2c054; font-size: 26px; font-family: serif; font-style: italic;">25+
+                      <!-- Stats row -->
+                      <div class="row text-center mb-4" style="margin: 0 -5px;">
+                        <div class="col-4" style="padding: 0 5px;">
+                          <div
+                            style="border: 1px solid rgba(138,43,226,0.4); border-radius: 14px; background: linear-gradient(135deg, rgba(138,43,226,0.1), rgba(0,0,0,0.5)); padding: 14px 0; box-shadow: 0 0 15px rgba(138,43,226,0.1);">
+                            <div
+                              style="color: #b66dff; font-size: 24px; font-weight: 700; line-height: 1; text-shadow: 0 0 10px rgba(138,43,226,0.6);">
+                              2+</div>
+                            <div
+                              style="color: #71717a; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; margin-top: 6px; line-height: 1.4;">
+                              Years<br>Experience</div>
                           </div>
-                          <div style="color: #a1a1aa; font-size: 9px; letter-spacing: 1px; text-transform: uppercase;">
-                            Projects<br>Completed</div>
                         </div>
-                        <div class="col-4" style="padding: 0;">
-                          <div style="color: #e2c054; font-size: 26px; font-family: serif; font-style: italic;">10+
+                        <div class="col-4" style="padding: 0 5px;">
+                          <div
+                            style="border: 1px solid rgba(138,43,226,0.4); border-radius: 14px; background: linear-gradient(135deg, rgba(138,43,226,0.1), rgba(0,0,0,0.5)); padding: 14px 0; box-shadow: 0 0 15px rgba(138,43,226,0.1);">
+                            <div
+                              style="color: #b66dff; font-size: 24px; font-weight: 700; line-height: 1; text-shadow: 0 0 10px rgba(138,43,226,0.6);">
+                              25+
+                            </div>
+                            <div
+                              style="color: #71717a; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; margin-top: 6px; line-height: 1.4;">
+                              Projects<br>Completed</div>
                           </div>
-                          <div style="color: #a1a1aa; font-size: 9px; letter-spacing: 1px; text-transform: uppercase;">
-                            Happy<br>Clients</div>
+                        </div>
+                        <div class="col-4" style="padding: 0 5px;">
+                          <div
+                            style="border: 1px solid rgba(138,43,226,0.4); border-radius: 14px; background: linear-gradient(135deg, rgba(138,43,226,0.1), rgba(0,0,0,0.5)); padding: 14px 0; box-shadow: 0 0 15px rgba(138,43,226,0.1);">
+                            <div
+                              style="color: #b66dff; font-size: 24px; font-weight: 700; line-height: 1; text-shadow: 0 0 10px rgba(138,43,226,0.6);">
+                              10+
+                            </div>
+                            <div
+                              style="color: #71717a; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; margin-top: 6px; line-height: 1.4;">
+                              Happy<br>Clients</div>
+                          </div>
                         </div>
                       </div>
 
                       <div
-                        style="border: 1px solid #333; padding: 20px; border-radius: 12px; background-color: #1a1a1a;">
+                        style="border: 1px solid rgba(138, 43, 226, 0.5); padding: 24px 22px 20px; border-radius: 16px; background: linear-gradient(135deg, rgba(138,43,226,0.08), rgba(0,0,0,0.6)); box-shadow: 0 0 25px rgba(138,43,226,0.15), inset 0 0 20px rgba(138,43,226,0.05); position: relative; overflow: hidden;">
                         <div
-                          style="color: #e2c054; font-size: 30px; line-height: 0.5; font-family: serif; margin-bottom: 10px;">
+                          style="position: absolute; top: -10px; right: -10px; width: 80px; height: 80px; background: radial-gradient(circle, rgba(138,43,226,0.2), transparent); border-radius: 50%;">
+                        </div>
+                        <div
+                          style="color: #8a2be2; font-size: 48px; line-height: 0.6; font-family: Georgia, serif; margin-bottom: 14px; text-shadow: 0 0 15px rgba(138,43,226,0.6);">
                           &ldquo;</div>
                         <p
-                          style="color: #a1a1aa; font-size: 13px; font-style: italic; margin-bottom: 15px; line-height: 1.5;">
+                          style="color: #d4d4d8; font-size: 13.5px; font-style: italic; margin-bottom: 18px; line-height: 1.7; letter-spacing: 0.3px;">
                           I turn ideas into functional, scalable and impactful digital products.</p>
-                        <div class="text-end"
-                          style="color: #e2c054; font-family: serif; font-style: italic; font-size: 16px;">Vishnu V
+                        <div style="display: flex; align-items: center; justify-content: flex-end; gap: 10px;">
+                          <div
+                            style="height: 1px; flex: 1; background: linear-gradient(to right, transparent, rgba(226,192,84,0.4));">
+                          </div>
+                          <div class="text-end"
+                            style="color: #e2c054; font-family: 'Great Vibes', cursive; font-style: italic; font-size: 20px; text-shadow: 0 0 10px rgba(226,192,84,0.5);">
+                            Vishnu V
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="tw-rounded-lg p-3 d-flex align-items-center justify-content-center"
-                      style="background-color: #f8f9fa; border: 1px solid #eaeaea; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 20px; margin-left: auto; max-width: 250px;">
-                      <h3 style="font-size: 32px; font-weight: 800; color: #111; margin-right: 15px; margin-bottom: 0;">
-                        98%</h3>
-                      <p
-                        style="font-size: 11px; font-weight: 600; color: #666; text-transform: uppercase; line-height: 1.4; margin-bottom: 0; text-align: left;">
-                        Clients satisfied<br>and repeating</p>
                     </div>
                   </div>
                   <div class="banner-three-line-shape position-absolute start-50 translate-middle-x z-n1">
                     <img src="assets/images/shapes/banner-three-shape.png" alt="shape" />
-                    <div class="banner-three-carcel-shape">
-                      <div><span></span></div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -1057,7 +1110,7 @@
         </div>
       </section>
       <!-- VIEW PROJECTS Button Strip -->
-      <div style="text-align: center; padding: 60px 20px; background: transparent;">
+      <div style="text-align: center; padding: 20px 20px 30px; background: transparent;">
         <a href="#portfolio" class="tw-hover-btn"
           style="display: inline-block; background: #000; color: #fff; font-weight: 700; font-size: 15px; letter-spacing: 3px; text-transform: uppercase; padding: 22px 60px; border-radius: 12px; text-decoration: none; border: 2px solid #333; transition: all 0.3s;"
           onmouseover="this.style.background='#e2c054';this.style.color='#000';this.style.borderColor='#e2c054'"
@@ -1073,10 +1126,7 @@
                 <div class="text-center">
                   <h2 class="about-three-title tw-text-15 tw-itm-title tw-itm-anim"
                     style="color: #ffffff !important; opacity: 0.9;">
-                    I transform ideas into impactful digital experiences through strategic design and modern
-                    engineering.
-                    Every solution is crafted with precision, innovation, and purpose to deliver exceptional results.
-                    Building products that inspire trust, create value, and leave a lasting impact.
+                    Technology has the power to change lives when it is built with purpose ~
 
                   </h2>
                 </div>
@@ -1380,155 +1430,256 @@
             </div>
           </div>
         </div>
-        <div class="container tw-container-1800-px">
+
+        <!-- Inline card styles -->
+        <style>
+          .pf-card {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+            background: #0a0a10;
+            cursor: pointer;
+          }
+          .pf-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(138,43,226,0.6), rgba(138,43,226,0.05), rgba(226,192,84,0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: 2;
+            opacity: 0.6;
+            transition: opacity 0.4s;
+          }
+          .pf-card:hover::before { opacity: 1; }
+          .pf-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(138,43,226,0.3);
+          }
+
+          /* Image container - increased height to show full image */
+          .pf-img {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+            border-radius: 0 0 18px 18px;
+          }
+          .pf-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), filter 0.8s ease;
+            filter: brightness(0.9) contrast(1.1);
+          }
+          .pf-card:hover .pf-img img {
+            transform: scale(1.05) translateY(-5px);
+            filter: brightness(1.1) contrast(1.15);
+          }
+
+          /* Overlay on hover */
+          .pf-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,10,20,0.95) 0%, transparent 60%);
+            z-index: 1;
+          }
+
+          /* Neon accent bar */
+          .pf-accent {
+            height: 2px;
+            background: linear-gradient(90deg, #8a2be2, #e2c054, #8a2be2);
+            background-size: 200% 100%;
+            animation: shimmer 2.5s linear infinite;
+          }
+          @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+          }
+
+          /* Info section */
+          .pf-info {
+            padding: 16px 18px 18px;
+            background: linear-gradient(180deg, rgba(14,14,22,1) 0%, rgba(10,10,16,1) 100%);
+          }
+          .pf-num {
+            font-size: 10px;
+            font-weight: 800;
+            color: #8a2be2;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+          }
+          .pf-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Syne', sans-serif;
+            line-height: 1.25;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+            text-decoration: none;
+            display: block;
+          }
+          .pf-card:hover .pf-title { color: #b66dff; }
+          .pf-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .pf-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 11px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            border: 1px solid rgba(138,43,226,0.35);
+            color: #a78bfa;
+            background: rgba(138,43,226,0.07);
+            transition: all 0.3s;
+          }
+          .pf-tag:hover {
+            background: rgba(138,43,226,0.2);
+            border-color: rgba(138,43,226,0.7);
+          }
+          .pf-arrow-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(138,43,226,0.5);
+            color: #b66dff;
+            background: rgba(138,43,226,0.08);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 16px;
+            flex-shrink: 0;
+          }
+          .pf-arrow-btn:hover, .pf-card:hover .pf-arrow-btn {
+            background: #8a2be2;
+            color: #fff;
+            border-color: #8a2be2;
+            box-shadow: 0 0 16px rgba(138,43,226,0.7);
+          }
+        </style>
+
+        <div class="container tw-container-1800-px" style="margin-bottom: 3rem;">
           <div class="row">
             <div class="col-xl-12">
               <div class="portfolio-three-wrapper position-relative z-1">
                 <div class="portfolio-three-active overflow-hidden">
-                  <div class="swiper-wrapper align-items-center">
+                  <div class="swiper-wrapper align-items-stretch">
+
+                    <!-- Card 1: Safety One -->
                     <div class="swiper-slide">
-                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
-                        style="margin-top: 0 !important; max-width: 100% !important;">
-                        <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
-                          <div class="tw-mb-6">
-                            <div>
-                              <h2 class="tw-text-605 fw-medium tw-mb-4">
-                                <a class="hover-text-main-two-600" href="portfolio-details.html">Epic Strategy App</a>
-                              </h2>
+                      <div class="pf-card">
+                        <div class="pf-info">
+                          <div class="pf-num">01 — PROJECT</div>
+                          <a class="pf-title" href="portfolio-details.html">Safety One – Women's Safety App</a>
+                          <div class="pf-tags">
+                            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                              <span class="pf-tag">Mobile App</span>
+                              <span class="pf-tag">UI / UX</span>
                             </div>
-                            <div class="portfolio-three-list portfolio-list">
-                              <ul class="d-flex tw-gap-205 flex-wrap">
-                                <li>
-                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                    href="#">BRANDING</a>
-                                </li>
-                                <li>
-                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                    href="#">web DESIGN</a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div>
-                            <div class="portfolio-three-button">
-                              <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                                href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
-                            </div>
+                            <a class="pf-arrow-btn" href="portfolio-details.html">↗</a>
                           </div>
                         </div>
-                        <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
-                          <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
-                              class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb1.jpg"
-                              alt="thumb" /></a>
+                        <div class="pf-accent"></div>
+                        <div class="pf-img">
+                          <div class="pf-img-overlay"></div>
+                          <a href="portfolio-details.html">
+                            <img src="assets/images/thumbs/safety-one-thumb.png" alt="Safety One App" />
+                          </a>
                         </div>
                       </div>
                     </div>
+
+                    <!-- Card 2: Branding Identity -->
                     <div class="swiper-slide">
-                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
-                        style="margin-top: 0 !important; max-width: 100% !important;">
-                        <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
-                          <div class="tw-mb-6">
-                            <div>
-                              <h2 class="tw-text-605 fw-medium tw-mb-4">
-                                <a class="hover-text-main-two-600" href="portfolio-details.html">Branding Identity</a>
-                              </h2>
+                      <div class="pf-card">
+                        <div class="pf-info">
+                          <div class="pf-num">02 — PROJECT</div>
+                          <a class="pf-title" href="portfolio-details.html">Branding Identity</a>
+                          <div class="pf-tags">
+                            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                              <span class="pf-tag">Branding</span>
+                              <span class="pf-tag">Web Design</span>
                             </div>
-                            <div class="portfolio-three-list portfolio-list">
-                              <ul class="d-flex tw-gap-205 flex-wrap">
-                                <li>
-                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                    href="#">BRANDING</a>
-                                </li>
-                                <li>
-                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                    href="#">web DESIGN</a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div class="portfolio-three-button">
-                            <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                              href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
+                            <a class="pf-arrow-btn" href="portfolio-details.html">↗</a>
                           </div>
                         </div>
-                        <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
-                          <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
-                              class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb2.jpg"
-                              alt="thumb" /></a>
+                        <div class="pf-accent"></div>
+                        <div class="pf-img">
+                          <div class="pf-img-overlay"></div>
+                          <a href="portfolio-details.html">
+                            <img src="assets/images/thumbs/portfolio-three-thumb2.jpg" alt="Branding Identity" />
+                          </a>
                         </div>
                       </div>
                     </div>
+
+                    <!-- Card 3: PixelCraft Mobile UI -->
                     <div class="swiper-slide">
-                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
-                        style="margin-top: 0 !important; max-width: 100% !important;">
-                        <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
-                          <div class="tw-mb-6">
-                            <div>
-                              <h2 class="tw-text-605 fw-medium tw-mb-4">
-                                <a class="hover-text-main-two-600" href="portfolio-details.html">PixelCraft Mobile
-                                  UI</a>
-                              </h2>
+                      <div class="pf-card">
+                        <div class="pf-info">
+                          <div class="pf-num">03 — PROJECT</div>
+                          <a class="pf-title" href="portfolio-details.html">PixelCraft Mobile UI</a>
+                          <div class="pf-tags">
+                            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                              <span class="pf-tag">Branding</span>
+                              <span class="pf-tag">Web Design</span>
                             </div>
-                            <div class="portfolio-three-list portfolio-list">
-                              <ul class="d-flex tw-gap-205 flex-wrap">
-                                <li>
-                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                    href="#">BRANDING</a>
-                                </li>
-                                <li>
-                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                    href="#">web DESIGN</a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div class="portfolio-three-button">
-                            <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                              href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
+                            <a class="pf-arrow-btn" href="portfolio-details.html">↗</a>
                           </div>
                         </div>
-                        <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
-                          <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
-                              class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb3.jpg"
-                              alt="thumb" /></a>
+                        <div class="pf-accent"></div>
+                        <div class="pf-img">
+                          <div class="pf-img-overlay"></div>
+                          <a href="portfolio-details.html">
+                            <img src="assets/images/thumbs/portfolio-three-thumb2.jpg" alt="PixelCraft Mobile UI" />
+                          </a>
                         </div>
                       </div>
                     </div>
+
+                    <!-- Card 4: Creative Studio -->
                     <div class="swiper-slide">
-                      <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
-                        style="margin-top: 0 !important; max-width: 100% !important;">
-                        <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
-                          <div class="tw-mb-6">
-                            <div>
-                              <h2 class="tw-text-605 fw-medium tw-mb-4">
-                                <a class="hover-text-main-two-600" href="portfolio-details.html">Creative Studio</a>
-                              </h2>
+                      <div class="pf-card">
+                        <div class="pf-info">
+                          <div class="pf-num">04 — PROJECT</div>
+                          <a class="pf-title" href="portfolio-details.html">Creative Studio</a>
+                          <div class="pf-tags">
+                            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                              <span class="pf-tag">Branding</span>
+                              <span class="pf-tag">Web Design</span>
                             </div>
-                            <div class="portfolio-three-list portfolio-list">
-                              <ul class="d-flex tw-gap-205 flex-wrap">
-                                <li>
-                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                    href="#">BRANDING</a>
-                                </li>
-                                <li>
-                                  <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                    href="#">web DESIGN</a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div class="portfolio-three-button">
-                            <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                              href="portfolio-details.html"><i class="ph ph-arrow-up-right"></i></a>
+                            <a class="pf-arrow-btn" href="portfolio-details.html">↗</a>
                           </div>
                         </div>
-                        <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
-                          <a class="d-block cursor-hide tw-rounded-lg" href="portfolio-details.html"><img
-                              class="w-100 tw-rounded-lg" src="assets/images/thumbs/portfolio-three-thumb4.jpg"
-                              alt="thumb" /></a>
+                        <div class="pf-accent"></div>
+                        <div class="pf-img">
+                          <div class="pf-img-overlay"></div>
+                          <a href="portfolio-details.html">
+                            <img src="assets/images/thumbs/portfolio-three-thumb4.jpg" alt="Creative Studio" />
+                          </a>
                         </div>
                       </div>
                     </div>
+
                   </div>
                 </div>
               </div>
@@ -1538,6 +1689,7 @@
       </section>
 
       <!-- ======================== Technical Skills Section start =========================== -->
+
       <section class="skills-section py-120 position-relative z-1" id="skills">
         <div class="container tw-container-1800-px">
           <div class="row">
@@ -1915,12 +2067,13 @@
               <div class="text-center tw-mb-12">
                 <h2 class="tw-text-15 text-white"
                   style="font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; font-family: 'Syne', sans-serif; margin-bottom: 50px;">
-                  Certifications - <span style="color: #8a2be2; font-style: italic; font-family: serif;">LEARNING MILESTONES!</span>
+                  𝘾𝙧𝙚𝙙𝙚𝙣𝙩𝙞𝙖𝙡𝙨 - <span style="color: #8a2be2; font-style: italic; font-family: serif;"> &
+                    𝘼𝙘𝙝𝙞𝙚𝙫𝙚𝙢𝙚𝙣𝙩𝙨!</span>
                 </h2>
               </div>
             </div>
           </div>
-          
+
           <div class="row g-4 justify-content-center">
             <!-- Card 1 -->
             <div class="col-12 col-md-6 col-lg-4">
@@ -1934,11 +2087,15 @@
                   </div>
                   <div class="cert-card-back">
                     <div class="cert-back-content">
-                      <i class="ph ph-certificate tw-text-4xl tw-mb-4" style="color: #b66dff; filter: drop-shadow(0 0 8px rgba(182,109,255,0.8));"></i>
+                      <i class="ph ph-certificate tw-text-4xl tw-mb-4"
+                        style="color: #b66dff; filter: drop-shadow(0 0 8px rgba(182,109,255,0.8));"></i>
                       <h4>Frontend Developer (React)</h4>
                       <p>Passed the HackerRank role certification test, demonstrating proficiency in React.</p>
                       <span class="cert-date">Issued: 30 Jul, 2026</span>
-                      <a href="https://www.hackerrank.com/certificates/iframe/dda757132c0e" target="_blank" style="margin-top: 15px; padding: 8px 20px; font-size: 13px; background: #8a2be2; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='#e2c054'; this.style.color='#000';" onmouseout="this.style.background='#8a2be2'; this.style.color='#fff';">VIEW</a>
+                      <a href="https://www.hackerrank.com/certificates/iframe/dda757132c0e" target="_blank"
+                        style="margin-top: 15px; padding: 8px 20px; font-size: 13px; background: #8a2be2; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s;"
+                        onmouseover="this.style.background='#e2c054'; this.style.color='#000';"
+                        onmouseout="this.style.background='#8a2be2'; this.style.color='#fff';">VIEW</a>
                     </div>
                   </div>
                 </div>
@@ -1957,11 +2114,16 @@
                   </div>
                   <div class="cert-card-back">
                     <div class="cert-back-content">
-                      <i class="ph ph-laptop tw-text-4xl tw-mb-4" style="color: #b66dff; filter: drop-shadow(0 0 8px rgba(182,109,255,0.8));"></i>
+                      <i class="ph ph-laptop tw-text-4xl tw-mb-4"
+                        style="color: #b66dff; filter: drop-shadow(0 0 8px rgba(182,109,255,0.8));"></i>
                       <h4>Software Engineer</h4>
-                      <p>Passed the HackerRank role certification test, demonstrating proficiency as a Software Engineer.</p>
+                      <p>Passed the HackerRank role certification test, demonstrating proficiency as a Software
+                        Engineer.</p>
                       <span class="cert-date">Issued: 04 Aug, 2026</span>
-                      <a href="https://www.hackerrank.com/certificates/iframe/d2db229c7892" target="_blank" style="margin-top: 15px; padding: 8px 20px; font-size: 13px; background: #8a2be2; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='#e2c054'; this.style.color='#000';" onmouseout="this.style.background='#8a2be2'; this.style.color='#fff';">VIEW</a>
+                      <a href="https://www.hackerrank.com/certificates/iframe/d2db229c7892" target="_blank"
+                        style="margin-top: 15px; padding: 8px 20px; font-size: 13px; background: #8a2be2; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s;"
+                        onmouseover="this.style.background='#e2c054'; this.style.color='#000';"
+                        onmouseout="this.style.background='#8a2be2'; this.style.color='#fff';">VIEW</a>
                     </div>
                   </div>
                 </div>
@@ -1982,7 +2144,8 @@
                     <div class="cert-back-content">
                       <i class="ph ph-robot tw-text-4xl tw-mb-4" style="color: #e2c054;"></i>
                       <h4>Agentic AI &amp; LLMs</h4>
-                      <p>In-depth understanding of integrating Large Language Models and building AI-driven solutions.</p>
+                      <p>In-depth understanding of integrating Large Language Models and building AI-driven solutions.
+                      </p>
                       <span class="cert-date">Issued: 2024</span>
                     </div>
                   </div>
@@ -2004,7 +2167,8 @@
                     <div class="cert-back-content">
                       <i class="ph ph-cloud tw-text-4xl tw-mb-4" style="color: #e2c054;"></i>
                       <h4>Cloud Deployment &amp; DevOps</h4>
-                      <p>Certified in implementing CI/CD pipelines, containerization, and cloud infrastructure management.</p>
+                      <p>Certified in implementing CI/CD pipelines, containerization, and cloud infrastructure
+                        management.</p>
                       <span class="cert-date">Issued: 2022</span>
                     </div>
                   </div>
@@ -2048,7 +2212,8 @@
                     <div class="cert-back-content">
                       <i class="ph ph-shield-check tw-text-4xl tw-mb-4" style="color: #e2c054;"></i>
                       <h4>Cybersecurity Fundamentals</h4>
-                      <p>Ensuring web application security, mitigating vulnerabilities, and implementing robust authentication.</p>
+                      <p>Ensuring web application security, mitigating vulnerabilities, and implementing robust
+                        authentication.</p>
                       <span class="cert-date">Issued: 2024</span>
                     </div>
                   </div>
